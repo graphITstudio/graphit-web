@@ -20,3 +20,17 @@ h1 {
 h2 {
     font-size: 2rem;
 }
+
+.container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+}
+
+.section-title {
+    margin-bottom: 2rem;
+}   
