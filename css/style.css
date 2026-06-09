@@ -38,6 +38,22 @@ button {
     cursor: pointer;
 }
 
+.hero-buttons button:first-child {
+
+    background: var(--primary);
+
+    color: white;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.hero-buttons button:first-child:hover {
+
+    transform: translateY(-2px);
+}
+
 /* ===== LAYOUT ===== */
 
 .container {
@@ -115,6 +131,17 @@ section {
 }
 
 .nav-links a:hover {
+
+    color: var(--primary);
+}
+
+.logo {
+
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo span {
 
     color: var(--primary);
 }
