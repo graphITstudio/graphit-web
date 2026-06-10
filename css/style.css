@@ -1,3 +1,29 @@
+/* ===== FONTS ===== */
+
+@font-face {
+
+    font-family: "Quilon";
+
+    src: url("../assets/fonts/Quilon/Quilon-Regular.otf")
+        format("opentype");
+
+    font-weight: normal;
+
+    font-style: normal;
+}
+
+@font-face {
+
+    font-family: "Alpino";
+
+    src: url("../assets/fonts/Alpino/Alpino-Light.otf")
+        format("opentype");
+
+    font-weight: normal;
+
+    font-style: normal;
+}
+
 /* ===== RESET ===== */
 
 * {
@@ -23,10 +49,12 @@
 /* ===== GENERAL ===== */
 
 body {
+
     background-color: var(--background);
+
     color: var(--text);
 
-    font-family: Arial, sans-serif;
+    font-family: "Alpino", sans-serif;
 }
 
 a {
@@ -120,8 +148,16 @@ section {
 }
 
 .hero h1 {
+
+    font-family: "Quilon", serif;
+
     font-size: 4rem;
-    margin-bottom: 1rem;
+
+    max-width: 1100px;
+
+    margin: 0 auto 2rem;
+
+    line-height: 1.1;
 }
 
 .hero p {
@@ -188,7 +224,7 @@ section {
 
 .logo img {
 
-    height: 50px;
+    height: 70px;
 
     width: auto;
 
@@ -258,4 +294,83 @@ section {
     border-color: var(--primary);
 
     box-shadow: 0 0 25px var(--primary);
+}
+
+.highlight{
+    color: var(--accent);
+}
+
+h2,
+h3 {
+
+    font-family: "Quilon", serif;
+}
+
+.nav-cta {
+
+    background: var(--accent);
+
+    color: black;
+
+    padding: .8rem 1.4rem;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.nav-cta:hover {
+
+    transform: translateY(-2px);
+}
+
+#proceso {
+
+    padding: 12rem 0;
+}
+
+#proceso h2 {
+
+    text-align: center;
+
+    margin-bottom: 4rem;
+
+    font-size: 3rem;
+}
+
+.process-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 1rem;
+}
+
+.process-card {
+
+    background: #111111;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 20px;
+
+    padding: 2rem;
+
+    text-align: center;
+}
+
+.process-card span {
+
+    color: var(--accent);
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    display: block;
+
+    margin-bottom: 1rem;
 }
