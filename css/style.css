@@ -142,13 +142,13 @@ section {
 /* ===== HERO ===== */
 
 .hero {
-    min-height: 100vh;
 
+    min-height: calc(100vh - 80px);
     display: flex;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
     text-align: center;
+    padding-top: 0;
 }
 
 .hero h1 {
@@ -157,7 +157,7 @@ section {
 
     font-size: 4rem;
 
-    max-width: 1100px;
+    max-width: 900px;
 
     margin: 0 auto 2rem;
 
@@ -239,14 +239,14 @@ section {
 
 #servicios {
 
-    padding: 12rem 0;
+    padding: 7rem 0;
 }
 
 #servicios h2 {
 
     text-align: center;
 
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
 
     font-size: 3rem;
 }
@@ -276,7 +276,9 @@ section {
 
     transform: translateY(-8px);
 
-    border-color: var(--primary);
+    border-color: var(--accent);
+
+    box-shadow: 0 0 25px rgba(255, 240, 0, .15);
 }
 
 .service-card h3 {
@@ -334,14 +336,14 @@ h3 {
 
 #proceso {
 
-    padding: 12rem 0;
+    padding: 7rem 0;
 }
 
 #proceso h2 {
 
     text-align: center;
 
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
 
     font-size: 3rem;
 }
@@ -379,4 +381,155 @@ h3 {
     display: block;
 
     margin-bottom: 1rem;
+}
+
+#contacto {
+    padding: 6rem 0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+
+        display: none;
+    }
+
+    .hero h1 {
+
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+
+        font-size: 1rem;
+    }
+
+    .services-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+
+    grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+
+    flex-direction: column;
+
+    text-align: center;
+    }
+
+    .footer-center {
+
+    text-align: center;
+    }
+
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    padding: 2rem 0;
+}
+
+.footer-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 2rem;
+}
+
+.footer-logo {
+
+    height: 70px;
+}
+
+.footer-center {
+
+    text-align: right;
+}
+
+.footer-slogan {
+
+    color: var(--accent);
+
+    margin-bottom: .5rem;
+}
+
+/* ===== POR QUÉ ===== */
+
+#why {
+
+    padding: 6rem 0;
+}
+
+#why h2 {
+
+    text-align: center;
+
+    margin-bottom: 2.5rem;
+}
+
+.why-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2rem;
+}
+
+.why-card {
+
+    text-align: center;
+}
+
+.why-card h3 {
+
+    color: var(--accent);
+
+    margin-bottom: 1rem;
+}
+
+.why-card p {
+
+    line-height: 1.8;
+}
+
+.process-card {
+
+    transition: .3s;
+}
+
+.process-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--primary);
+}
+
+.why-card {
+
+    transition: .3s;
+}
+
+.why-card:hover {
+
+    transform: translateY(-6px);
 }
