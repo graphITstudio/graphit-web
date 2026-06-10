@@ -103,6 +103,10 @@ button {
 
 .hero-buttons button:first-child:hover {
 
+    background: var(--accent);
+
+    color: black;
+
     transform: translateY(-3px);
 }
 
@@ -213,7 +217,7 @@ section {
 
 .nav-links a:hover {
 
-    color: var(--primary);
+    color: var(--accent);
 }
 
 .logo {
@@ -324,6 +328,8 @@ h3 {
 .nav-cta:hover {
 
     transform: translateY(-2px);
+    background: var(--primary);
+    color: white;
 }
 
 #proceso {
