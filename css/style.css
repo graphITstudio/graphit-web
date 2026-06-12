@@ -175,6 +175,11 @@ section {
     line-height: 1.6;
 }
 
+.hero .container {
+
+    justify-content: center;
+}
+
 /* ===== NAVBAR ===== */
 
 .navbar {
@@ -589,6 +594,15 @@ footer {
     max-width: 320px;
 
     margin: 0 auto 2rem;
+}
+
+.hero {
+
+    min-height: 75vh;
+
+    padding-top: 4rem;
+
+    padding-bottom: 4rem;
 }
 
     .services-grid {
