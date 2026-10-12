@@ -64,9 +64,22 @@ html {
     scroll-padding-top: 100px;
 }
 
+
 body {
     min-width: 320px;
-    background: var(--background);
+    background:
+        radial-gradient(
+            ellipse at 80% 12%,
+            rgba(69, 145, 255, 0.075),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 12% 52%,
+            rgba(69, 145, 255, 0.045),
+            transparent 35%
+        ),
+        #050608;
+
     color: var(--text);
     font-family: "Alpino", sans-serif;
     font-weight: 300;
@@ -74,6 +87,7 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
+
 
 img,
 svg {
@@ -751,4 +765,269 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+
+/* =========================================================
+   GRAPHIT STUDIO — ATMÓSFERA VISUAL
+   Profundidad, luz y textura
+========================================================= */
+
+/* ===== HERO: LUZ Y PROFUNDIDAD ===== */
+
+.hero {
+    background:
+        radial-gradient(
+            ellipse at 78% 38%,
+            rgba(69, 145, 255, 0.13),
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 18% 85%,
+            rgba(69, 145, 255, 0.07),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050609 0%,
+            #080B12 48%,
+            #000000 100%
+        );
+}
+
+/* ===== FONDO CONTINUO ENTRE SECCIONES ===== */
+
+#servicios,
+#why,
+#paquetes,
+#proceso {
+    background: transparent;
+    border-top: none;
+}
+
+/* El contacto puede tener un poco más de profundidad */
+
+#contacto {
+    background:
+        radial-gradient(
+            ellipse at 75% 50%,
+            rgba(69, 145, 255, 0.065),
+            transparent 48%
+        ),
+        transparent;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* Separadores discretos entre bloques */
+
+#servicios,
+#why,
+#paquetes,
+#proceso {
+    border-top: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+/* Evitar efectos innecesarios en móviles */
+
+@media (max-width: 768px) {
+    .hero::after {
+        background-size: 42px 42px;
+        opacity: 0.28;
+    }
+
+    #servicios,
+    #why,
+    #paquetes,
+    #proceso {
+        background-attachment: scroll;
+    }
+}
+
+
+
+/* ===== AJUSTE DE COMPOSICIÓN DEL HERO ===== */
+
+.hero {
+    padding-inline: 0;
+}
+
+.hero .container {
+    display: block;
+    width: min(
+        var(--content-width),
+        calc(100% - 48px)
+    );
+    margin-inline: auto;
+}
+
+/* Alineación coherente del contenido principal */
+
+.hero h1 {
+    max-width: 950px;
+    margin-inline: 0;
+}
+
+.hero p {
+    margin-inline: 0;
+}
+
+.hero .hero-eyebrow {
+    margin-left: 0;
+}
+
+/* Móvil */
+
+@media (max-width: 768px) {
+    .hero .container {
+        width: calc(100% - 36px);
+    }
+}
+
+@media (max-width: 420px) {
+    .hero .container {
+        width: calc(100% - 32px);
+    }
+}
+
+
+/* ===== CORRECCIÓN DE DIAGNÓSTICO DEL HERO ===== */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    min-height: min(760px, calc(100svh - 82px));
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.hero-eyebrow {
+    display: flex;
+    margin: 0 0 1.5rem;
+    max-width: 100%;
+}
+
+.hero h1 {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 0 1.5rem;
+}
+
+.hero p:not(.hero-eyebrow) {
+    width: 100%;
+    max-width: 610px;
+    margin: 0;
+}
+
+.hero .hero-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .hero .container {
+        width: calc(100% - 36px);
+    }
+
+    .hero {
+        min-height: auto;
+        padding-block: 5rem;
+    }
+}
+
+
+/* ===== ATMÓSFERA DEL HERO V2 ===== */
+
+.hero {
+    background:
+        radial-gradient(
+            ellipse 42% 58% at 78% 42%,
+            rgba(69, 145, 255, 0.13) 0%,
+            rgba(69, 145, 255, 0.045) 42%,
+            transparent 76%
+        ),
+        radial-gradient(
+            ellipse 55% 65% at 5% 100%,
+            rgba(69, 145, 255, 0.065) 0%,
+            transparent 72%
+        ),
+        linear-gradient(
+            125deg,
+            #050608 0%,
+            #080B12 52%,
+            #030406 100%
+        );
+}
+
+.hero::after {
+    background-size: 64px 64px;
+    opacity: 0.22;
+
+    -webkit-mask-image: radial-gradient(
+        ellipse at 65% 45%,
+        black 0%,
+        rgba(0, 0, 0, 0.55) 35%,
+        transparent 75%
+    );
+
+    mask-image: radial-gradient(
+        ellipse at 65% 45%,
+        black 0%,
+        rgba(0, 0, 0, 0.55) 35%,
+        transparent 75%
+    );
+}
+
+/* Cuadrícula técnica muy sutil */
+
+
+/* ===== CUADRÍCULA TECNOLÓGICA DEL HERO ===== */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(69, 145, 255, 0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(69, 145, 255, 0.055) 1px,
+            transparent 1px
+        );
+
+    background-size: 64px 64px;
+
+    -webkit-mask-image: radial-gradient(
+        ellipse at 55% 45%,
+        black 0%,
+        rgba(0, 0, 0, 0.75) 50%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse at 55% 45%,
+        black 0%,
+        rgba(0, 0, 0, 0.75) 50%,
+        transparent 100%
+    );
+
+    opacity: 0.70;
 }
