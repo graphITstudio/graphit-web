@@ -432,7 +432,7 @@ section h2 {
 }
 
 #why h3{
-    color: var(--accent)
+    color: var(--primary)
 }
 /* ===== POR QUÉ GRAPHIT ===== */
 
@@ -810,5 +810,123 @@ footer {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ===== ATMÓSFERA VISUAL · SECCIONES ===== */
+
+#servicios,
+#why,
+#paquetes,
+#proceso,
+#contacto {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    background: transparent;
+    padding-block: clamp(4.5rem, 8vw, 7rem);
+}
+
+/* Iluminación ambiental suave */
+#servicios::before,
+#why::before,
+#paquetes::before,
+#proceso::before,
+#contacto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at 15% 35%,
+            rgba(69, 145, 255, 0.055),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 85% 70%,
+            rgba(69, 145, 255, 0.035),
+            transparent 50%
+        );
+}
+
+/* Separadores discretos entre secciones */
+#servicios::after,
+#why::after,
+#paquetes::after,
+#proceso::after,
+#contacto::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(69, 145, 255, 0.10),
+        rgba(255, 255, 255, 0.07),
+        rgba(69, 145, 255, 0.10),
+        transparent
+    );
+}
+
+/* Contenido por encima de la iluminación */
+#servicios > .container,
+#why > .container,
+#paquetes > .container,
+#proceso > .container,
+#contacto > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== TARJETAS · SUPERFICIES ===== */
+
+.service-card,
+.package-card,
+.process-card {
+    background: linear-gradient(
+        145deg,
+        rgba(22, 25, 32, 0.94),
+        rgba(12, 13, 17, 0.97)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+        transform 250ms ease,
+        border-color 250ms ease,
+        box-shadow 250ms ease,
+        background-color 250ms ease;
+}
+
+/* Hover azul, sin exceso de brillo */
+.service-card:hover,
+.package-card:hover,
+.process-card:hover {
+    border-color: rgba(69, 145, 255, 0.45);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* El paquete destacado conserva su identidad */
+.package-card.featured {
+    border-color: var(--accent);
+}
+
+/* Accesibilidad: reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .package-card,
+    .process-card {
+        transition: none;
+    }
+
+    .service-card:hover,
+    .package-card:hover,
+    .process-card:hover {
+        transform: none;
     }
 }
