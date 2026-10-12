@@ -1,6 +1,6 @@
 /* =========================================================
    GRAPHIT STUDIO — SISTEMA VISUAL V1
-   Hoja de estilos consolidada
+   Hoja de estilos consolidada y sin sobrescrituras
 ========================================================= */
 
 /* ===== TIPOGRAFÍAS ===== */
@@ -21,7 +21,7 @@
     font-display: swap;
 }
 
-/* ===== RESET Y VARIABLES ===== */
+/* ===== VARIABLES Y RESET ===== */
 
 :root {
     color-scheme: dark;
@@ -44,7 +44,6 @@
     --content-width: 1200px;
 
     --section-space: clamp(4.5rem, 8vw, 7rem);
-
     --transition: 220ms ease;
 }
 
@@ -64,7 +63,6 @@ html {
     scroll-padding-top: 100px;
 }
 
-
 body {
     min-width: 320px;
     background:
@@ -79,7 +77,6 @@ body {
             transparent 35%
         ),
         #050608;
-
     color: var(--text);
     font-family: "Alpino", sans-serif;
     font-weight: 300;
@@ -87,7 +84,6 @@ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
-
 
 img,
 svg {
@@ -122,7 +118,7 @@ a:focus-visible {
     color: #000000;
 }
 
-/* ===== ELEMENTOS GENERALES ===== */
+/* ===== ESTRUCTURA GENERAL ===== */
 
 .container {
     width: min(var(--content-width), calc(100% - 48px));
@@ -132,6 +128,7 @@ a:focus-visible {
 section {
     padding-block: var(--section-space);
     scroll-margin-top: 90px;
+    border-top: 1px solid rgba(255, 255, 255, 0.035);
 }
 
 h1,
@@ -151,53 +148,6 @@ section h2 {
 
 .highlight {
     color: var(--accent);
-}
-
-/* ===== BOTONES DEL HERO ===== */
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 0.85rem;
-    margin-top: 2.3rem;
-}
-
-.hero-buttons button {
-    min-height: 50px;
-    padding: 0.9rem 1.6rem;
-    border: 1px solid transparent;
-    border-radius: var(--radius-pill);
-    font-size: 1rem;
-    font-weight: 600;
-    transition:
-        transform var(--transition),
-        color var(--transition),
-        background var(--transition),
-        border-color var(--transition);
-}
-
-.hero-buttons button:first-child {
-    background: var(--primary);
-    color: #000000;
-}
-
-.hero-buttons button:first-child:hover {
-    background: var(--accent);
-    color: #000000;
-    transform: translateY(-2px);
-}
-
-.hero-buttons button:last-child {
-    background: transparent;
-    border-color: var(--border-strong);
-    color: var(--text);
-}
-
-.hero-buttons button:last-child:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-2px);
 }
 
 /* ===== NAVBAR ===== */
@@ -285,29 +235,72 @@ section h2 {
     isolation: isolate;
     display: flex;
     align-items: center;
+    justify-content: center;
     min-height: min(760px, calc(100svh - 82px));
-    padding-block: clamp(6rem, 12vw, 10rem);
+    padding-block: clamp(4rem, 8vw, 7rem);
     overflow: hidden;
     background:
         radial-gradient(
-            ellipse at 85% 30%,
-            rgba(69, 145, 255, 0.13),
-            transparent 38%
+            ellipse 42% 58% at 78% 42%,
+            rgba(69, 145, 255, 0.13) 0%,
+            rgba(69, 145, 255, 0.045) 42%,
+            transparent 76%
         ),
-        linear-gradient(180deg, #050608 0%, #000000 100%);
+        radial-gradient(
+            ellipse 55% 65% at 5% 100%,
+            rgba(69, 145, 255, 0.065) 0%,
+            transparent 72%
+        ),
+        linear-gradient(
+            125deg,
+            #050608 0%,
+            #080B12 52%,
+            #030406 100%
+        );
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(69, 145, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(69, 145, 255, 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(
+        ellipse at 55% 45%,
+        #000000 0%,
+        rgba(0, 0, 0, 0.75) 50%,
+        transparent 100%
+    );
+    mask-image: radial-gradient(
+        ellipse at 55% 45%,
+        #000000 0%,
+        rgba(0, 0, 0, 0.75) 50%,
+        transparent 100%
+    );
+    opacity: 0.70;
 }
 
 .hero .container {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
 }
 
 .hero-eyebrow {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 1.8rem;
-    color: var(--primary);
+    max-width: 100%;
+    margin: 0 0 1.5rem;
+    color: var(--text-muted);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -323,19 +316,67 @@ section h2 {
 }
 
 .hero h1 {
+    width: 100%;
     max-width: 950px;
-    margin-bottom: 1.6rem;
+    margin: 0 0 1.5rem;
     font-size: clamp(3.5rem, 7.3vw, 6.5rem);
     letter-spacing: -0.035em;
     line-height: 1.03;
     text-wrap: balance;
 }
 
-.hero p {
+.hero p:not(.hero-eyebrow) {
+    width: 100%;
     max-width: 610px;
+    margin: 0;
     color: var(--text-muted);
     font-size: clamp(1.05rem, 1.5vw, 1.2rem);
     line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.85rem;
+    margin-top: 2rem;
+}
+
+.hero-buttons button {
+    min-height: 50px;
+    padding: 0.9rem 1.6rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    transition:
+        transform var(--transition),
+        color var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+.hero-buttons button:first-child {
+    background: var(--primary);
+    color: #000000;
+}
+
+.hero-buttons button:first-child:hover {
+    background: var(--accent);
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+.hero-buttons button:last-child {
+    background: transparent;
+    border-color: var(--border-strong);
+    color: var(--text);
+}
+
+.hero-buttons button:last-child:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
 }
 
 /* ===== SERVICIOS ===== */
@@ -386,6 +427,13 @@ section h2 {
     border-color: rgba(69, 145, 255, 0.65);
 }
 
+#servicios h3{
+    color: var(--accent)
+}
+
+#why h3{
+    color: var(--accent)
+}
 /* ===== POR QUÉ GRAPHIT ===== */
 
 .why-grid {
@@ -541,14 +589,14 @@ section h2 {
 
 #contacto {
     overflow: hidden;
-    border-top: 1px solid var(--border-subtle);
     background:
         radial-gradient(
-            ellipse at 80% 50%,
-            rgba(69, 145, 255, 0.12),
-            transparent 55%
+            ellipse at 75% 50%,
+            rgba(69, 145, 255, 0.065),
+            transparent 48%
         ),
-        #07080A;
+        transparent;
+    border-top-color: rgba(255, 255, 255, 0.06);
 }
 
 #contacto p {
@@ -631,6 +679,10 @@ footer {
         width: calc(100% - 36px);
     }
 
+    section {
+        scroll-margin-top: 80px;
+    }
+
     .navbar .container {
         min-height: 72px;
         height: auto;
@@ -652,7 +704,7 @@ footer {
 
     .hero {
         min-height: auto;
-        padding-block: 6rem;
+        padding-block: 5rem;
     }
 
     .hero h1 {
@@ -665,17 +717,9 @@ footer {
         letter-spacing: 0.1em;
     }
 
-    .hero p {
+    .hero p:not(.hero-eyebrow) {
         max-width: 520px;
         font-size: 1.05rem;
-    }
-
-    .hero-buttons {
-        justify-content: flex-start;
-    }
-
-    section h2 {
-        margin-bottom: 2rem;
     }
 
     .services-grid,
@@ -696,29 +740,31 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .package-card.featured {
-        box-shadow: inset 0 3px 0 var(--accent);
-    }
-
     .process-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .footer-content {
         flex-direction: column;
-        text-align: center;
         gap: 1rem;
+        text-align: center;
     }
 
     .footer-center {
         text-align: center;
+    }
+
+    .hero::after {
+        background-size: 42px 42px;
+        opacity: 0.28;
     }
 }
 
 /* ===== RESPONSIVE: MÓVILES PEQUEÑOS ===== */
 
 @media (max-width: 420px) {
-    .container {
+    .container,
+    .hero .container {
         width: calc(100% - 32px);
     }
 
@@ -751,7 +797,7 @@ footer {
     }
 }
 
-/* ===== MOVIMIENTO REDUCIDO ===== */
+/* ===== ACCESIBILIDAD: MOVIMIENTO REDUCIDO ===== */
 
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -765,269 +811,4 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-}
-
-
-/* =========================================================
-   GRAPHIT STUDIO — ATMÓSFERA VISUAL
-   Profundidad, luz y textura
-========================================================= */
-
-/* ===== HERO: LUZ Y PROFUNDIDAD ===== */
-
-.hero {
-    background:
-        radial-gradient(
-            ellipse at 78% 38%,
-            rgba(69, 145, 255, 0.13),
-            transparent 32%
-        ),
-        radial-gradient(
-            ellipse at 18% 85%,
-            rgba(69, 145, 255, 0.07),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #050609 0%,
-            #080B12 48%,
-            #000000 100%
-        );
-}
-
-/* ===== FONDO CONTINUO ENTRE SECCIONES ===== */
-
-#servicios,
-#why,
-#paquetes,
-#proceso {
-    background: transparent;
-    border-top: none;
-}
-
-/* El contacto puede tener un poco más de profundidad */
-
-#contacto {
-    background:
-        radial-gradient(
-            ellipse at 75% 50%,
-            rgba(69, 145, 255, 0.065),
-            transparent 48%
-        ),
-        transparent;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-
-/* Separadores discretos entre bloques */
-
-#servicios,
-#why,
-#paquetes,
-#proceso {
-    border-top: 1px solid rgba(255, 255, 255, 0.035);
-}
-
-/* Evitar efectos innecesarios en móviles */
-
-@media (max-width: 768px) {
-    .hero::after {
-        background-size: 42px 42px;
-        opacity: 0.28;
-    }
-
-    #servicios,
-    #why,
-    #paquetes,
-    #proceso {
-        background-attachment: scroll;
-    }
-}
-
-
-
-/* ===== AJUSTE DE COMPOSICIÓN DEL HERO ===== */
-
-.hero {
-    padding-inline: 0;
-}
-
-.hero .container {
-    display: block;
-    width: min(
-        var(--content-width),
-        calc(100% - 48px)
-    );
-    margin-inline: auto;
-}
-
-/* Alineación coherente del contenido principal */
-
-.hero h1 {
-    max-width: 950px;
-    margin-inline: 0;
-}
-
-.hero p {
-    margin-inline: 0;
-}
-
-.hero .hero-eyebrow {
-    margin-left: 0;
-}
-
-/* Móvil */
-
-@media (max-width: 768px) {
-    .hero .container {
-        width: calc(100% - 36px);
-    }
-}
-
-@media (max-width: 420px) {
-    .hero .container {
-        width: calc(100% - 32px);
-    }
-}
-
-
-/* ===== CORRECCIÓN DE DIAGNÓSTICO DEL HERO ===== */
-
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(4rem, 8vw, 7rem) 0;
-    min-height: min(760px, calc(100svh - 82px));
-}
-
-.hero .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0;
-    width: min(1200px, calc(100% - 48px));
-    margin-inline: auto;
-}
-
-.hero-eyebrow {
-    display: flex;
-    margin: 0 0 1.5rem;
-    max-width: 100%;
-}
-
-.hero h1 {
-    width: 100%;
-    max-width: 950px;
-    margin: 0 0 1.5rem;
-}
-
-.hero p:not(.hero-eyebrow) {
-    width: 100%;
-    max-width: 610px;
-    margin: 0;
-}
-
-.hero .hero-buttons {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 2rem;
-}
-
-@media (max-width: 768px) {
-    .hero .container {
-        width: calc(100% - 36px);
-    }
-
-    .hero {
-        min-height: auto;
-        padding-block: 5rem;
-    }
-}
-
-
-/* ===== ATMÓSFERA DEL HERO V2 ===== */
-
-.hero {
-    background:
-        radial-gradient(
-            ellipse 42% 58% at 78% 42%,
-            rgba(69, 145, 255, 0.13) 0%,
-            rgba(69, 145, 255, 0.045) 42%,
-            transparent 76%
-        ),
-        radial-gradient(
-            ellipse 55% 65% at 5% 100%,
-            rgba(69, 145, 255, 0.065) 0%,
-            transparent 72%
-        ),
-        linear-gradient(
-            125deg,
-            #050608 0%,
-            #080B12 52%,
-            #030406 100%
-        );
-}
-
-.hero::after {
-    background-size: 64px 64px;
-    opacity: 0.22;
-
-    -webkit-mask-image: radial-gradient(
-        ellipse at 65% 45%,
-        black 0%,
-        rgba(0, 0, 0, 0.55) 35%,
-        transparent 75%
-    );
-
-    mask-image: radial-gradient(
-        ellipse at 65% 45%,
-        black 0%,
-        rgba(0, 0, 0, 0.55) 35%,
-        transparent 75%
-    );
-}
-
-/* Cuadrícula técnica muy sutil */
-
-
-/* ===== CUADRÍCULA TECNOLÓGICA DEL HERO ===== */
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-
-    background-image:
-        linear-gradient(
-            rgba(69, 145, 255, 0.055) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(69, 145, 255, 0.055) 1px,
-            transparent 1px
-        );
-
-    background-size: 64px 64px;
-
-    -webkit-mask-image: radial-gradient(
-        ellipse at 55% 45%,
-        black 0%,
-        rgba(0, 0, 0, 0.75) 50%,
-        transparent 100%
-    );
-
-    mask-image: radial-gradient(
-        ellipse at 55% 45%,
-        black 0%,
-        rgba(0, 0, 0, 0.75) 50%,
-        transparent 100%
-    );
-
-    opacity: 0.70;
 }
