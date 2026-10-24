@@ -328,45 +328,6 @@ section h2 {
     margin-top: 2rem;
 }
 
-.hero-buttons button {
-    min-height: 50px;
-    padding: 0.9rem 1.6rem;
-    border: 1px solid transparent;
-    border-radius: var(--radius-pill);
-    font-size: 1rem;
-    font-weight: 600;
-    transition:
-        transform var(--transition),
-        color var(--transition),
-        background var(--transition),
-        border-color var(--transition);
-}
-
-.hero-buttons button:first-child {
-    background: var(--primary);
-    color: #000000;
-}
-
-.hero-buttons button:first-child:hover {
-    background: var(--accent);
-    color: #000000;
-    transform: translateY(-2px);
-}
-
-.hero-buttons button:last-child {
-    background: transparent;
-    border-color: var(--border-strong);
-    color: var(--text);
-}
-
-.hero-buttons button:last-child:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-2px);
-}
-
-
-
 .hero-buttons .hero-button {
     display: inline-flex;
     align-items: center;
