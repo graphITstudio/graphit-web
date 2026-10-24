@@ -397,13 +397,16 @@ section h2 {
     min-width: 0;
     min-height: 235px;
     padding: clamp(1.5rem, 2.5vw, 2.2rem);
-    background: linear-gradient(145deg, #14161B, #0C0D10);
-    border: 1px solid var(--border-subtle);
+    background: linear-gradient(145deg,
+            rgba(22, 25, 32, 0.94),
+            rgba(12, 13, 17, 0.97));
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-card);
     transition:
-        transform var(--transition),
-        border-color var(--transition),
-        background var(--transition);
+        transform 250ms ease,
+        border-color 250ms ease,
+        box-shadow 250ms ease,
+        background-color 250ms ease;
 }
 
 .service-card h3 {
@@ -479,13 +482,16 @@ section h2 {
     min-width: 0;
     height: 100%;
     padding: clamp(1.5rem, 2.2vw, 2rem);
-    background: linear-gradient(150deg, #15161A, #0B0C0F);
-    border: 1px solid var(--border-subtle);
+    background: linear-gradient(145deg,
+            rgba(22, 25, 32, 0.94),
+            rgba(12, 13, 17, 0.97));
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-card);
     transition:
-        transform var(--transition),
-        border-color var(--transition),
-        background var(--transition);
+        transform 250ms ease,
+        border-color 250ms ease,
+        box-shadow 250ms ease,
+        background-color 250ms ease;
 }
 
 .package-card h3 {
@@ -557,12 +563,16 @@ section h2 {
     min-width: 0;
     padding: 1.6rem 1rem;
     text-align: center;
-    background: var(--surface);
-    border: 1px solid var(--border-subtle);
+    background: linear-gradient(145deg,
+            rgba(22, 25, 32, 0.94),
+            rgba(12, 13, 17, 0.97));
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-card);
     transition:
-        transform var(--transition),
-        border-color var(--transition);
+        transform 250ms ease,
+        border-color 250ms ease,
+        box-shadow 250ms ease,
+        background-color 250ms ease;
 }
 
 .process-card span {
@@ -581,9 +591,6 @@ section h2 {
     transform: translateY(-4px);
     border-color: var(--primary);
 }
-
-/* ===== CONTACTO ===== */
-
 
 /* ===== CONTACTO ===== */
 
@@ -901,10 +908,6 @@ footer {
         align-items: stretch;
     }
 
-    .hero-buttons button {
-        width: 100%;
-    }
-
     .process-grid {
         grid-template-columns: 1fr;
     }
@@ -1001,31 +1004,12 @@ footer {
 
 /* ===== TARJETAS · SUPERFICIES ===== */
 
-.service-card,
-.package-card,
-.process-card {
-    background: linear-gradient(145deg,
-            rgba(22, 25, 32, 0.94),
-            rgba(12, 13, 17, 0.97));
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition:
-        transform 250ms ease,
-        border-color 250ms ease,
-        box-shadow 250ms ease,
-        background-color 250ms ease;
-}
-
 /* Hover azul, sin exceso de brillo */
 .service-card:hover,
 .package-card:hover,
 .process-card:hover {
     border-color: rgba(69, 145, 255, 0.45);
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
-}
-
-/* El paquete destacado conserva su identidad */
-.package-card.featured {
-    border-color: var(--accent);
 }
 
 /* Accesibilidad: reducir movimiento */
