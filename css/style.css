@@ -1535,3 +1535,10 @@ footer {
     }
 }
 
+
+/* Ajuste fino de la separación navbar–hero en escritorio */
+@media (min-width: 901px) {
+    .hero {
+        padding-top: 2.5rem;
+    }
+}
