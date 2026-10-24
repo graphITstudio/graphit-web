@@ -1393,3 +1393,120 @@ footer {
         transition: none;
     }
 }
+
+
+/* ===== HERO GRAPHIT · ANIMACIÓN OFICIAL WEBM ===== */
+
+.hero .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+.hero-content h1 {
+    max-width: 760px;
+}
+
+.hero-content .hero-description {
+    max-width: 610px;
+}
+
+.hero-visual {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+}
+
+.hero-animated-logo {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    max-width: 580px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+}
+
+/* Iluminación ambiental sutil */
+
+.hero-logo-glow {
+    position: absolute;
+    z-index: 0;
+    width: 66%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(69, 145, 255, 0.12);
+    filter: blur(65px);
+    pointer-events: none;
+    animation: graphit-glow 5s ease-in-out infinite alternate;
+}
+
+@keyframes graphit-glow {
+    from {
+        opacity: 0.55;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: scale(1.06);
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .hero .hero-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.75fr);
+        gap: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+    }
+}
+
+/* Móvil */
+
+@media (max-width: 680px) {
+    .hero .hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.8rem, 11vw, 4.2rem);
+    }
+
+    .hero-visual {
+        width: min(100%, 390px);
+        margin-inline: auto;
+    }
+
+    .hero-animated-logo {
+        max-width: 100%;
+    }
+}
+
+/* Respeta las preferencias de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-logo-glow {
+        animation: none;
+    }
+}
+
