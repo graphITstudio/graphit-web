@@ -135,6 +135,45 @@ h3 {
     line-height: 1.2;
 }
 
+
+/* ===== COMPOSICIÓN TIPOGRÁFICA ===== */
+
+:where(p, li, summary) {
+    text-wrap: pretty;
+}
+
+:where(.service-card p, .package-summary p, .why-card p, .faq-answer p, .contact-description) {
+    max-width: 100%;
+    hyphens: none;
+    overflow-wrap: normal;
+}
+
+/* ===== TIPOGRAFÍA · COMPOSICIÓN DE LÍNEAS ===== */
+
+/* Títulos: distribuir las líneas de forma equilibrada */
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+/* Párrafos y textos descriptivos */
+p,
+li {
+    text-wrap: pretty;
+}
+
+/* Preguntas desplegables y encabezados de tarjetas */
+summary {
+    text-wrap: pretty;
+}
+
+/* En los títulos de sección, priorizar el equilibrio visual */
+section h2 {
+    text-wrap: balance;
+}
+
+
 section h2 {
     margin-bottom: 2.75rem;
     font-size: clamp(2.1rem, 4vw, 3.3rem);
@@ -384,11 +423,27 @@ section h2 {
     text-align: center;
 }
 
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: stretch;
     gap: 1.25rem;
 }
+
+.services-grid .service-card {
+    grid-column: span 2;
+}
+
+/* Centrar las dos tarjetas de la segunda fila */
+.services-grid .service-card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.services-grid .service-card:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
 
 .service-card {
     display: flex;
@@ -879,6 +934,11 @@ footer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .services-grid .service-card:nth-child(4),
+    .services-grid .service-card:nth-child(5) {
+        grid-column: auto;
+    }
+
     .process-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -894,6 +954,12 @@ footer {
     .nav-links {
         gap: 1rem;
     }
+
+    
+    .services-grid .service-card {
+        grid-column: auto;
+    }
+
 }
 
 /* ===== RESPONSIVE: MÓVIL ===== */
